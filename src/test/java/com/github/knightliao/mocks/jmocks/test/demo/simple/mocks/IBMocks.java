@@ -1,6 +1,6 @@
-package com.github.knightliao.mocks.jmocks.test.demo.mocks;
+package com.github.knightliao.mocks.jmocks.test.demo.simple.mocks;
 
-import com.github.knightliao.mocks.jmocks.test.demo.service.IB;
+import com.github.knightliao.mocks.jmocks.test.demo.simple.service.IB;
 
 import mockit.Expectations;
 

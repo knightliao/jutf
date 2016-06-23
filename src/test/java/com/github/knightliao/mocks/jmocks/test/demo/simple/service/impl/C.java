@@ -1,8 +1,8 @@
-package com.github.knightliao.mocks.jmocks.test.demo.service.impl;
+package com.github.knightliao.mocks.jmocks.test.demo.simple.service.impl;
 
 import org.springframework.stereotype.Service;
 
-import com.github.knightliao.mocks.jmocks.test.demo.service.IC;
+import com.github.knightliao.mocks.jmocks.test.demo.simple.service.IC;
 
 /**
  * Created by knightliao on 16/6/6.

@@ -1,13 +1,13 @@
-package com.github.knightliao.mocks.jmocks.test.demo.test.simple;
+package com.github.knightliao.mocks.jmocks.test.demo.simple;
 
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.github.knightliao.mocks.jmocks.test.demo.mocks.IBMocks;
-import com.github.knightliao.mocks.jmocks.test.demo.service.IB;
-import com.github.knightliao.mocks.jmocks.test.demo.service.impl.A;
-import com.github.knightliao.mocks.jmocks.test.demo.test.MyAbstractBaseTest;
+import com.github.knightliao.mocks.jmocks.test.demo.simple.mocks.IBMocks;
+import com.github.knightliao.mocks.jmocks.test.demo.simple.service.IB;
+import com.github.knightliao.mocks.jmocks.test.demo.simple.service.impl.A;
+import com.github.knightliao.mocks.jmocks.test.common.MyAbstractBaseTest;
 
 /**
  * 对A进行测试，mock b

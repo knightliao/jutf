@@ -1,4 +1,4 @@
-package com.github.knightliao.mocks.jmocks.test.demo.test;
+package com.github.knightliao.mocks.jmocks.test.common;
 
 import org.junit.Ignore;
 import org.junit.runner.RunWith;

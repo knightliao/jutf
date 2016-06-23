@@ -1,9 +1,9 @@
-package com.github.knightliao.mocks.jmocks.test.demo.service.impl;
+package com.github.knightliao.mocks.jmocks.test.demo.simple.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.github.knightliao.mocks.jmocks.test.demo.service.IA;
+import com.github.knightliao.mocks.jmocks.test.demo.simple.service.IA;
 
 @Service
 public class A implements IA {

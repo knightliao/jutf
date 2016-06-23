@@ -1,10 +1,10 @@
-package com.github.knightliao.mocks.jmocks.test.demo.test;
+package com.github.knightliao.mocks.jmocks.test;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
-import com.github.knightliao.mocks.jmocks.test.demo.test.simple.JmockitTestAMockB;
-import com.github.knightliao.mocks.jmocks.test.demo.test.simple.JmockitTestAMockC;
+import com.github.knightliao.mocks.jmocks.test.demo.simple.JmockitTestAMockB;
+import com.github.knightliao.mocks.jmocks.test.demo.simple.JmockitTestAMockC;
 
 /**
  * Created by knightliao on 16/6/6.
