@@ -4,7 +4,7 @@
 
     <groupId>com.github.knightliao.test</groupId>
     <artifactId>jutf</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
 
     <modelVersion>4.0.0</modelVersion>
 
@@ -176,4 +176,51 @@
             </plugin>
         </plugins>
     </build>
+
+    <inceptionYear>2016</inceptionYear>
+    <licenses>
+        <license>
+            <name>Apache 2</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+            <comments>A business-friendly OSS license</comments>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Zhu Gongrui</name>
+            <id>zhugongrui</id>
+            <email>346996971@qq.com</email>
+            <roles>
+                <role>Developer</role>
+            </roles>
+            <timezone>+8</timezone>
+        </developer>
+        <developer>
+            <name>Liao Qiqi</name>
+            <id>knightliao</id>
+            <email>knightliao@gmail.com</email>
+            <roles>
+                <role>Developer</role>
+            </roles>
+            <timezone>+8</timezone>
+        </developer>
+    </developers>
+
+    <organization>
+        <name>UNKNOWN</name>
+        <url>http://www.UNKNOWN.com</url>
+    </organization>
+
+    <scm>
+        <url>scm:git:git@github.com:knightliao/jutf</url>
+        <connection>scm:git:git@github.com:knightliao/jutf</connection>
+        <tag>disconf-base</tag>
+    </scm>
+
+    <url>https://github.com/knightliao/jutf</url>
+    <name>jutf</name>
+    <description>Java Unit Test Framework</description>
+
 </project>
