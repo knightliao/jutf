@@ -16,5 +16,3 @@
 .idea
 BCLOUD
 build.sh
-target
-*.iml
