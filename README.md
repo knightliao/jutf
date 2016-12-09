@@ -5,9 +5,11 @@ Java Unit Test Framework
  
 ### 功能
 
-- Use H2 to mock db
-- Use mockito to mock interface 
-- Utils to mock get/set/construct/tostring
+- Jutf-spring
+    - Use H2 to mock db
+    - Use mockito to mock interface 
+- Jutf
+    - Utils to mock get/set/construct/tostring
 
 ### Quick Start
 
@@ -15,8 +17,18 @@ Java Unit Test Framework
 
 ### Maven
 
+非spring版本
+
     <dependency>
         <groupId>com.github.knightliao.test</groupId>
-        <artifactId>jutf-base</artifactId>
-        <version>1.0.1-SNAPSHOT</version>
+        <artifactId>jutf</artifactId>
+        <version>1.0.2-SNAPSHOT</version>
+    </dependency>
+    
+Spring版本
+
+    <dependency>
+        <groupId>com.github.knightliao.test</groupId>
+        <artifactId>jutf-spring</artifactId>
+        <version>1.0.2-SNAPSHOT</version>
     </dependency>
