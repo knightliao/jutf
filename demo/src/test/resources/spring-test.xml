@@ -51,8 +51,7 @@
         <property name="dataSource" ref="unitTestDataSource"/>
         <property name="mapperLocations">
             <list>
-                <value>classpath:com/github/knightliao/test/demo/dao/DemoDao.xml
-                </value>
+                <value>classpath:dao/DemoDao.xml</value>
             </list>
         </property>
     </bean>
