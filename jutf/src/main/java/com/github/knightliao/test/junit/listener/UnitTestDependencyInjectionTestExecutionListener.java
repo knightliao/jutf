@@ -30,7 +30,7 @@ public class UnitTestDependencyInjectionTestExecutionListener extends Dependency
     /**
      * 记录被测试的对象
      */
-    private Map<String, Object> testedObjects = new HashMap<>();
+    private Map<String, Object> testedObjects = new HashMap<String, Object>();
 
     @Override
     protected void injectDependencies(TestContext testContext) throws Exception {
@@ -128,7 +128,7 @@ public class UnitTestDependencyInjectionTestExecutionListener extends Dependency
     }
 
     private List<Field> getDeclaredFields(Object object) {
-        List<Field> fieldList = new ArrayList<>();
+        List<Field> fieldList = new ArrayList<Field>();
         Class<?> clazz = object.getClass();
         for (; clazz != Object.class; clazz = clazz.getSuperclass()) {
             try {

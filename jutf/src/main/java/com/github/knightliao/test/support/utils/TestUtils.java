@@ -28,8 +28,9 @@ public class TestUtils {
 
     private static final URL CLASS_PATH = Thread.currentThread().getContextClassLoader().getResource("");
     private static final String CLASSES = "/classes/";
-    private static Map<Class, Object> instanceMap = new HashMap<>();
-    private static Map<Class, Map<Type, Map<Boolean, Object>>> colletionInstanceMap = new HashMap<>();
+    private static Map<Class, Object> instanceMap = new HashMap<Class, Object>();
+    private static Map<Class, Map<Type, Map<Boolean, Object>>> colletionInstanceMap =
+            new HashMap<Class, Map<Type, Map<Boolean, Object>>>();
 
     public static void testAllClassUnderPackage(String pack) {
         for (Class<?> clazz : getClassList(pack)) {

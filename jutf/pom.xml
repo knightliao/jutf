@@ -9,9 +9,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <properties>
+
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <jdk.version>1.7</jdk.version>
         <jmockit.version>1.24</jmockit.version>
         <spring.version>4.2.5.RELEASE</spring.version>
         <junit.version>4.12</junit.version>
@@ -19,6 +19,11 @@
         <commons-lang3.version>3.4</commons-lang3.version>
         <log4j.version>1.2.17</log4j.version>
         <mockito.version>1.9.5</mockito.version>
+
+        <!-- JAVA环境 -->
+        <java.version>1.7</java.version>
+        <source.version>1.7</source.version>
+        <target.version>1.7</target.version>
     </properties>
 
     <dependencies>
@@ -99,12 +104,8 @@
 
     </dependencies>
 
+    <!-- 构建 -->
     <build>
-
-        <defaultGoal>package</defaultGoal>
-        <finalName>${project.artifactId}</finalName>
-        <outputDirectory>target/classes</outputDirectory>
-
         <resources>
             <resource>
                 <directory>${project.basedir}/src/main/java</directory>
@@ -115,18 +116,52 @@
             <resource>
                 <directory>${project.basedir}/src/main/resources</directory>
                 <includes>
-                    <include>*.*</include>
+                    <include>**/*.*</include>
                 </includes>
             </resource>
         </resources>
 
-        <plugins>
+        <finalName>canalx-select-db-json</finalName>
 
+        <!-- 覆盖率 mvn test -->
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>cobertura-maven-plugin</artifactId>
+                <version>2.6</version>
+                <configuration>
+                    <formats>
+                        <format>xml</format>
+                        <format>html</format>
+                    </formats>
+                    <aggregate>true</aggregate>
+                    <instrumentation>
+                        <excludes>
+                            <exclude>**/*Proto.class</exclude>
+                            <exclude>**/*Proto$*.class</exclude>
+                            <exclude>**/*Test.class</exclude>
+                        </excludes>
+                    </instrumentation>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>cobertura</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- 编译 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>2.3.1</version>
                 <configuration>
+                    <source>${source.version}</source>
+                    <target>${target.version}</target>
+                    <encoding>${encoding}</encoding>
                     <failOnError>true</failOnError>
                     <showDeprecation>true</showDeprecation>
                     <showWarnings>true</showWarnings>
@@ -134,9 +169,6 @@
                         <verbose/>
                         <bootclasspath>${java.home}/lib/rt.jar</bootclasspath>
                     </compilerArguments>
-                    <source>${jdk.version}</source>
-                    <target>${jdk.version}</target>
-                    <encoding>${project.build.sourceEncoding}</encoding>
                 </configuration>
 
                 <dependencies>
@@ -147,56 +179,82 @@
                     </dependency>
                 </dependencies>
             </plugin>
+
+            <!-- JAR包 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.4</version>
+            </plugin>
+
+            <!-- auto deploy plugin -->
+            <plugin>
+                <groupId>org.codehaus.cargo</groupId>
+                <artifactId>cargo-maven2-plugin</artifactId>
+                <version>1.2.0</version>
+            </plugin>
+
+            <!-- 单测 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.5</version>
+                <configuration>
+                    <argLine>-Dfile.encoding=UTF-8</argLine>
+                    <includes>
+                        <include>**/*TestCase.java</include>
+                        <include>**/*Test.java</include>
+                    </includes>
+                </configuration>
+            </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
-                <configuration>
-                    <attach>true</attach>
-                </configuration>
                 <executions>
                     <execution>
-                        <phase>compile</phase>
+                        <id>attach-sources</id>
                         <goals>
                             <goal>jar</goal>
                         </goals>
                     </execution>
                 </executions>
             </plugin>
+
+            <!-- 为了github的测试覆盖率 -->
+            <plugin>
+                <groupId>org.eluder.coveralls</groupId>
+                <artifactId>coveralls-maven-plugin</artifactId>
+                <version>3.1.0</version>
+            </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>2.4</version>
+                <artifactId>maven-javadoc-plugin</artifactId>
                 <configuration>
-                    <excludes>
-                        <exclude>*.properties</exclude>
-                        <exclude>**/*.properties</exclude>
-                        <exclude>conf/**</exclude>
-                    </excludes>
+                    <tags>
+                        <tag>
+                            <name>date</name>
+                            <!-- todo tag for all places -->
+                            <placement>a</placement>
+                            <head>date</head>
+                        </tag>
+                    </tags>
                 </configuration>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
+
         </plugins>
     </build>
 
-    <inceptionYear>2016</inceptionYear>
-    <licenses>
-        <license>
-            <name>Apache 2</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-            <distribution>repo</distribution>
-            <comments>A business-friendly OSS license</comments>
-        </license>
-    </licenses>
-
     <developers>
-        <developer>
-            <name>Zhu Gongrui</name>
-            <id>zhugongrui</id>
-            <email>346996971@qq.com</email>
-            <roles>
-                <role>Developer</role>
-            </roles>
-            <timezone>+8</timezone>
-        </developer>
         <developer>
             <name>Liao Qiqi</name>
             <id>knightliao</id>
@@ -209,19 +267,18 @@
     </developers>
 
     <organization>
-        <name>knightliao</name>
+        <name>KNIGHT</name>
         <url>http://www.liaoqiqi.com</url>
     </organization>
 
     <scm>
-        <url>scm:git:git@github.com:knightliao/jutf</url>
-        <connection>scm:git:git@github.com:knightliao/jutf</connection>
-        <tag>disconf-base</tag>
+        <url>scm:git:git@github.com:knightliao/canalx-select-db-json</url>
+        <connection>scm:git:git@github.com:knightliao/canalx-select-db-json</connection>
+        <tag>canalx-select-db-json</tag>
     </scm>
 
-    <url>https://github.com/knightliao/jutf</url>
-    <name>jutf</name>
-    <description>Java Unit Test Framework</description>
+    <url>https://github.com/knightliao/canalx-select-db-json</url>
+    <description>Fetch MYSQL's data to K-V style data.</description>
 
     <profiles>
         <profile>
@@ -256,7 +313,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-javadoc-plugin</artifactId>
-                        <version>2.9.1</version>
+                        <version>2.10.4</version>
                         <executions>
                             <execution>
                                 <phase>package</phase>
@@ -266,6 +323,7 @@
                             </execution>
                         </executions>
                     </plugin>
+
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
@@ -281,6 +339,21 @@
                         </executions>
                     </plugin>
                 </plugins>
+            </build>
+        </profile>
+        <!-- 开发环境默认激活的profile -->
+        <profile>
+            <id>rd</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <build>
+                <resources>
+                    <!-- 指定环境差异配置的配置文件所在目录 -->
+                    <resource>
+                        <directory>${basedir}/profile/rd</directory>
+                    </resource>
+                </resources>
             </build>
         </profile>
     </profiles>
