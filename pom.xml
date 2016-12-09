@@ -11,7 +11,6 @@
 
     <modules>
         <module>jutf</module>
-        <module>demo</module>
         <module>jutf-spring</module>
     </modules>
 
@@ -26,6 +25,9 @@
         <commons-lang3.version>3.4</commons-lang3.version>
         <log4j.version>1.2.17</log4j.version>
         <mockito.version>1.9.5</mockito.version>
+
+        <mybatis-spring.version>1.2.2</mybatis-spring.version>
+        <mybatis.version>3.3.0</mybatis.version>
 
         <!-- JAVA环境 -->
         <java.version>1.7</java.version>

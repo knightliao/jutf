@@ -1,4 +1,4 @@
-package com.github.knightliao.test.demo;
+package com.github.knightliao.test.test.demo;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -12,11 +12,11 @@ import org.springframework.test.context.ContextConfiguration;
 
 import com.github.knightliao.test.datasource.SqlConfig;
 import com.github.knightliao.test.datasource.SqlConfig.Database;
-import com.github.knightliao.test.demo.dao.DemoDao;
-import com.github.knightliao.test.demo.entity.Demo;
-import com.github.knightliao.test.demo.service.DemoService;
-import com.github.knightliao.test.demo.service.UsedService;
 import com.github.knightliao.test.junit.tests.AbstractTransactionalTest;
+import com.github.knightliao.test.test.demo.dao.DemoDao;
+import com.github.knightliao.test.test.demo.entity.Demo;
+import com.github.knightliao.test.test.demo.service.DemoService;
+import com.github.knightliao.test.test.demo.service.UsedService;
 
 /**
  * @author zhugongrui

@@ -1,4 +1,4 @@
-package com.github.knightliao.mocks.jmocks.test;
+package com.github.knightliao.test.test;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;

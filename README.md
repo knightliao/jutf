@@ -6,8 +6,8 @@ Java Unit Test Framework
 ### 功能
 
 - Jutf-Spring
-    - Use H2 to mock db
     - Use mockito to mock interface 
+    - Use H2/Mysql(配置选择) to mock db
 - Jutf
     - Utils to mock get/set/construct/tostring
 

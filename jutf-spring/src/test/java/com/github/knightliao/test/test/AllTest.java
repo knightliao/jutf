@@ -1,13 +1,15 @@
-package com.github.knightliao.mocks.jmocks.test;
+package com.github.knightliao.test.test;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
+
+import com.github.knightliao.test.test.demo.DemoServiceTest;
 
 /**
  * Created by knightliao on 16/6/6.
  */
 @RunWith(Suite.class)
-@Suite.SuiteClasses({})
+@Suite.SuiteClasses({DemoServiceTest.class})
 public class AllTest {
 
 }

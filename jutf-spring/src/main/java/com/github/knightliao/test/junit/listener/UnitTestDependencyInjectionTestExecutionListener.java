@@ -23,6 +23,8 @@ import org.springframework.test.context.support.DependencyInjectionTestExecution
 import org.springframework.util.CollectionUtils;
 
 /**
+ * mockito 没有做替换隔离, 这里帮它做掉,避免污染
+ *
  * @author zhugongrui
  * @date 2016年6月13日
  */
