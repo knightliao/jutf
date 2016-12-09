@@ -4,7 +4,7 @@
 
     <groupId>com.github.knightliao.test</groupId>
     <artifactId>jutf-base</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.2-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <modelVersion>4.0.0</modelVersion>
@@ -12,6 +12,7 @@
     <modules>
         <module>jutf</module>
         <module>demo</module>
+        <module>jutf-spring</module>
     </modules>
 
     <properties>
@@ -89,7 +90,7 @@
                 <configuration>
                     <source>${source.version}</source>
                     <target>${target.version}</target>
-                    <encoding>${encoding}</encoding>
+                    <encoding>UTF-8</encoding>
                     <failOnError>true</failOnError>
                     <showDeprecation>true</showDeprecation>
                     <showWarnings>true</showWarnings>
