@@ -58,7 +58,7 @@ Java Unit Test Framework
 
 ### Maven
 
-非spring版本
+#### Jutf
 
     <dependency>
         <groupId>com.github.knightliao.test</groupId>
@@ -66,7 +66,7 @@ Java Unit Test Framework
         <version>1.0.2-SNAPSHOT</version>
     </dependency>
     
-Spring版本
+#### Jutf-Spring
 
     <dependency>
         <groupId>com.github.knightliao.test</groupId>
