@@ -6,10 +6,10 @@ Java Unit Test Framework (Warp H2/Mockito tools to make java application better)
 ## Func
 
 - jutf-Spring(spring dependency version)
-    - Use mockito to mock interface 
+    - Use mockito/jmockit to mock interface 
     - H2/Mysql Test db utils
 - jutf(spring free dependency version)
-    - Use mockito to mock interface 
+    - Use mockito/jmockit to mock interface 
     - Utils to mock get/set/construct/tostring
     - H2 Memory Test db utils
 
