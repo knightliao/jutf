@@ -227,6 +227,7 @@
     </scm>
 
     <url>https://github.com/knightliao/jutf</url>
+    <name>jutf</name>
     <description>jutf</description>
 
     <profiles>
