@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
+import javax.sql.DataSource;
+
 import org.apache.commons.dbutils.DbUtils;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.MapListHandler;
@@ -26,8 +28,8 @@ import com.github.knightliao.test.h2.config.InitDbConfig;
 public abstract class H2BaseTestCase {
 
     protected Connection connection;
+    protected DataSource dataSource;
 
-    protected String db2PropertiesFile = "jutf-h2.properties";
     protected static String db2XmlFile = "jutf-h2.xml";
 
     protected static InitDbConfig initDbConfig;
@@ -57,6 +59,7 @@ public abstract class H2BaseTestCase {
         try {
 
             connection = DriverManager.getConnection(dbRule.getConnectionJdbcUrl());
+            dataSource = dbRule.getDataSource();
 
         } catch (Exception e) {
             System.err.println(e.toString());
@@ -78,4 +81,11 @@ public abstract class H2BaseTestCase {
         }
     }
 
+    public DataSource getDataSource() {
+        return dataSource;
+    }
+
+    public Connection getConnection() {
+        return connection;
+    }
 }
