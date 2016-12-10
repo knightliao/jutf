@@ -1,7 +1,7 @@
 jutf [![Build Status](https://travis-ci.org/knightliao/jutf.svg?branch=master)](https://travis-ci.org/knightliao/jutf) [![Coverage Status](https://coveralls.io/repos/github/knightliao/jutf/badge.svg?branch=master)](https://coveralls.io/github/knightliao/jutf?branch=master)
 =======
 
-Java Unit Test Framework (Warp H2/Mockito tools to make java application better) 
+Java Unit Test Framework (Warp H2/Mockito/jmockit tools to make java application better) 
  
 ## Func
 
@@ -39,7 +39,7 @@ H2 Test Code:
     
             try {
     
-                String query = "select * from t_demo";
+                String query = "select * from test.t_demo";
                 List<Map<String, Object>> listOfMaps = executeSql(query);
     
                 System.out.println(new Gson().toJson(listOfMaps));

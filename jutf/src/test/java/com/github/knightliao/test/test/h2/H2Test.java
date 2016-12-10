@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.MapListHandler;
+import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
 import org.zapodot.junit.db.EmbeddedDatabaseRule;
@@ -33,8 +34,10 @@ public class H2Test {
             QueryRunner queryRunner = new QueryRunner();
 
             List<Map<String, Object>> listOfMaps = null;
-            listOfMaps = queryRunner.query(connection, "select * from t_demo", new MapListHandler());
+            listOfMaps = queryRunner.query(connection, "select * from test.t_demo", new MapListHandler());
             System.out.println(new Gson().toJson(listOfMaps));
+
+            Assert.assertEquals(0, listOfMaps.size());
         }
 
     }

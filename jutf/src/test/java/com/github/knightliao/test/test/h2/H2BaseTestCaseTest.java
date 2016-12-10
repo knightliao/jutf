@@ -21,7 +21,7 @@ public class H2BaseTestCaseTest extends H2BaseTestCase {
 
         try {
 
-            String query = "select * from t_demo";
+            String query = "select * from test.t_demo";
             List<Map<String, Object>> listOfMaps = executeSql(query);
 
             System.out.println(new Gson().toJson(listOfMaps));
