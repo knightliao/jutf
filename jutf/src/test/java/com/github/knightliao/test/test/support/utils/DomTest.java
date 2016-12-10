@@ -1,4 +1,4 @@
-package com.github.knightliao.test.test;
+package com.github.knightliao.test.test.support.utils;
 
 import org.junit.Test;
 

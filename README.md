@@ -3,15 +3,65 @@ Jutf [![Build Status](https://travis-ci.org/knightliao/jutf.svg?branch=master)](
 
 Java Unit Test Framework 
  
-### 功能
+### Func
 
 - Jutf-Spring
     - Use mockito to mock interface 
-    - Use H2/Mysql(配置选择) to mock db
+    - H2/Mysql Test db utils
 - Jutf
     - Utils to mock get/set/construct/tostring
+    - H2 Memory Test db utils
 
 ### Quick Start
+
+#### Jutf
+
+##### H2 Test
+
+XML Configuration: 
+
+    <configuration>
+        <initialize-database>
+            <schema>sql/schema/demo_schema.sql</schema>
+        </initialize-database>
+    
+        <initialize-data>
+            <data>sql/goldendata/demo_data.sql</data>
+        </initialize-data>
+    </configuration>
+
+H2 Test Code:
+
+    public class H2BaseTestCaseTest extends H2BaseTestCase {
+    
+        @Test
+        public void foo() {
+    
+            try {
+    
+                String query = "select * from t_demo";
+                List<Map<String, Object>> listOfMaps = executeSql(query);
+    
+                System.out.println(new Gson().toJson(listOfMaps));
+    
+                Assert.assertEquals(listOfMaps.size(), 2);
+    
+            } catch (SQLException se) {
+    
+                Assert.assertTrue(false);
+                throw new RuntimeException("Couldn't query the database.", se);
+    
+            }
+    
+        }
+    }
+
+##### get/set/construct/tostring Test
+
+    @Test
+    public void test() {
+        TestUtils.testAllClassUnderPackage("com.github.knightliao.test");
+    }
 
 #### Jutf-Spring
 
@@ -49,13 +99,6 @@ Java Unit Test Framework
         }
     }
 
-#### Jutf
-
-    @Test
-    public void test() {
-        TestUtils.testAllClassUnderPackage("com.github.knightliao.test");
-    }
-
 ### Maven
 
 #### Jutf
@@ -73,3 +116,6 @@ Java Unit Test Framework
         <artifactId>jutf-spring</artifactId>
         <version>1.0.2-SNAPSHOT</version>
     </dependency>
+    
+    
+    
