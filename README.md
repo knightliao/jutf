@@ -1,20 +1,20 @@
-Jutf [![Build Status](https://travis-ci.org/knightliao/jutf.svg?branch=master)](https://travis-ci.org/knightliao/jutf) [![Coverage Status](https://coveralls.io/repos/github/knightliao/jutf/badge.svg?branch=master)](https://coveralls.io/github/knightliao/jutf?branch=master)
+jutf [![Build Status](https://travis-ci.org/knightliao/jutf.svg?branch=master)](https://travis-ci.org/knightliao/jutf) [![Coverage Status](https://coveralls.io/repos/github/knightliao/jutf/badge.svg?branch=master)](https://coveralls.io/github/knightliao/jutf?branch=master)
 =======
 
 Java Unit Test Framework 
  
 ## Func
 
-- Jutf-Spring
+- jutf-Spring(spring dependency version)
     - Use mockito to mock interface 
     - H2/Mysql Test db utils
-- Jutf
+- jutf(spring free dependency version)
     - Utils to mock get/set/construct/tostring
     - H2 Memory Test db utils
 
 ## Quick Start
 
-### Jutf
+### jutf
 
 #### H2 Test
 
@@ -63,7 +63,7 @@ H2 Test Code:
         TestUtils.testAllClassUnderPackage("com.github.knightliao.test");
     }
 
-### Jutf-Spring
+### jutf-Spring
 
     @ContextConfiguration(locations = "classpath:spring-test.xml")
     public class BaseTest extends AbstractTransactionalTest {
@@ -101,7 +101,7 @@ H2 Test Code:
 
 ## Maven
 
-### Jutf
+### jutf
 
     <dependency>
         <groupId>com.github.knightliao.test</groupId>
@@ -109,7 +109,7 @@ H2 Test Code:
         <version>1.0.2-SNAPSHOT</version>
     </dependency>
     
-### Jutf-Spring
+### jutf-Spring
 
     <dependency>
         <groupId>com.github.knightliao.test</groupId>
