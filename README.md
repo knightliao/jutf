@@ -3,7 +3,7 @@ Jutf [![Build Status](https://travis-ci.org/knightliao/jutf.svg?branch=master)](
 
 Java Unit Test Framework 
  
-### Func
+## Func
 
 - Jutf-Spring
     - Use mockito to mock interface 
@@ -12,11 +12,11 @@ Java Unit Test Framework
     - Utils to mock get/set/construct/tostring
     - H2 Memory Test db utils
 
-### Quick Start
+## Quick Start
 
-#### Jutf
+### Jutf
 
-##### H2 Test
+#### H2 Test
 
 XML Configuration: 
 
@@ -56,14 +56,14 @@ H2 Test Code:
         }
     }
 
-##### get/set/construct/tostring Test
+#### get/set/construct/tostring Test
 
     @Test
     public void test() {
         TestUtils.testAllClassUnderPackage("com.github.knightliao.test");
     }
 
-#### Jutf-Spring
+### Jutf-Spring
 
     @ContextConfiguration(locations = "classpath:spring-test.xml")
     public class BaseTest extends AbstractTransactionalTest {
@@ -99,9 +99,9 @@ H2 Test Code:
         }
     }
 
-### Maven
+## Maven
 
-#### Jutf
+### Jutf
 
     <dependency>
         <groupId>com.github.knightliao.test</groupId>
@@ -109,7 +109,7 @@ H2 Test Code:
         <version>1.0.2-SNAPSHOT</version>
     </dependency>
     
-#### Jutf-Spring
+### Jutf-Spring
 
     <dependency>
         <groupId>com.github.knightliao.test</groupId>
