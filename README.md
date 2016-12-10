@@ -5,7 +5,7 @@ jutf
 [![Build Status](https://travis-ci.org/knightliao/jutf.svg?branch=master)](https://travis-ci.org/knightliao/jutf) 
 [![Coverage Status](https://coveralls.io/repos/github/knightliao/jutf/badge.svg?branch=master)](https://coveralls.io/github/knightliao/jutf?branch=master) 
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.knightliao.test/jutf/badge.svg?style=plastic)](https://maven-badges.herokuapp.com/maven-central/com.github.knightliao.test/jutf) 
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.knightliao.test/jutf-spring/badge.svg?style=plastic)](https://maven-badges.herokuapp.com/maven-central/com.github.knightliao.test-spring/jutf)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.knightliao.test/jutf-spring/badge.svg?style=plastic)](https://maven-badges.herokuapp.com/maven-central/com.github.knightliao.test/jutf-spring)
 
 Java Unit Test Framework (Warp H2/Mockito/jmockit tools to make java application better) 
  
