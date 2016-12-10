@@ -1,4 +1,4 @@
-package com.github.knightliao.test.test.demo.entity;
+package com.github.knightliao.test.test.mockito.entity;
 
 import lombok.Data;
 

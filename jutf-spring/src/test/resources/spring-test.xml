@@ -57,7 +57,7 @@
     </bean>
 
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.github.knightliao.test.test.demo.dao"/>
+        <property name="basePackage" value="com.github.knightliao.test.test.mockito.dao"/>
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
     </bean>
 

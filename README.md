@@ -1,7 +1,7 @@
 jutf [![Build Status](https://travis-ci.org/knightliao/jutf.svg?branch=master)](https://travis-ci.org/knightliao/jutf) [![Coverage Status](https://coveralls.io/repos/github/knightliao/jutf/badge.svg?branch=master)](https://coveralls.io/github/knightliao/jutf?branch=master)
 =======
 
-Java Unit Test Framework 
+Java Unit Test Framework (Warp H2/Mockito tools to make java application better) 
  
 ## Func
 
@@ -9,6 +9,7 @@ Java Unit Test Framework
     - Use mockito to mock interface 
     - H2/Mysql Test db utils
 - jutf(spring free dependency version)
+    - Use mockito to mock interface 
     - Utils to mock get/set/construct/tostring
     - H2 Memory Test db utils
 
@@ -24,7 +25,6 @@ XML Configuration:
         <initialize-database>
             <schema>sql/schema/demo_schema.sql</schema>
         </initialize-database>
-    
         <initialize-data>
             <data>sql/goldendata/demo_data.sql</data>
         </initialize-data>
@@ -61,6 +61,35 @@ H2 Test Code:
     @Test
     public void test() {
         TestUtils.testAllClassUnderPackage("com.github.knightliao.test");
+    }
+    
+#### mockito case 
+
+    public class DemoServiceTest {
+    
+        @InjectMocks
+        private DemoService demoService = new DemoService();
+    
+        @Spy
+        private IUsedService usedService = new UsedServiceImpl();
+    
+        @Before
+        public void setUp() {
+    
+            MockitoAnnotations.initMocks(this);
+            Mockito.when(usedService.echo("hello")).thenReturn("world");
+    
+        }
+    
+        @Test
+        public void testEcho() {
+    
+            String result = demoService.echo2("hello");
+            Assert.assertEquals("world", result);
+    
+            result = demoService.echo2("hello world");
+            Assert.assertEquals("hello world", result);
+        }
     }
 
 ### jutf-Spring

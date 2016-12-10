@@ -4,7 +4,6 @@
     <initialize-database>
         <schema>sql/schema/demo_schema.sql</schema>
     </initialize-database>
-
     <initialize-data>
         <data>sql/goldendata/demo_data.sql</data>
     </initialize-data>

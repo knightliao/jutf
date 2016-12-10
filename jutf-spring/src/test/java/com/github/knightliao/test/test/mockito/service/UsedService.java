@@ -1,4 +1,4 @@
-package com.github.knightliao.test.test.demo.service;
+package com.github.knightliao.test.test.mockito.service;
 
 import org.springframework.stereotype.Service;
 

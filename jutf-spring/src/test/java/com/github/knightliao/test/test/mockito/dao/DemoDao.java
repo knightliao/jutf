@@ -1,6 +1,6 @@
-package com.github.knightliao.test.test.demo.dao;
+package com.github.knightliao.test.test.mockito.dao;
 
-import com.github.knightliao.test.test.demo.entity.Demo;
+import com.github.knightliao.test.test.mockito.entity.Demo;
 
 /**
  * @author zhugongrui

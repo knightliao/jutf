@@ -1,10 +1,10 @@
-package com.github.knightliao.test.test.demo.service;
+package com.github.knightliao.test.test.mockito.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.github.knightliao.test.test.demo.dao.DemoDao;
-import com.github.knightliao.test.test.demo.entity.Demo;
+import com.github.knightliao.test.test.mockito.dao.DemoDao;
+import com.github.knightliao.test.test.mockito.entity.Demo;
 
 /**
  * @author zhugongrui

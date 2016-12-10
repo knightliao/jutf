@@ -3,7 +3,7 @@ package com.github.knightliao.test.test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
-import com.github.knightliao.test.test.demo.DemoServiceTest;
+import com.github.knightliao.test.test.mockito.DemoServiceTest;
 
 /**
  * Created by knightliao on 16/6/6.
