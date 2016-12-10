@@ -141,7 +141,7 @@ H2 Test Code:
     <dependency>
         <groupId>com.github.knightliao.test</groupId>
         <artifactId>jutf</artifactId>
-        <version>1.0.2-SNAPSHOT</version>
+        <version>1.0.2</version>
     </dependency>
     
 ### jutf-Spring
@@ -149,7 +149,7 @@ H2 Test Code:
     <dependency>
         <groupId>com.github.knightliao.test</groupId>
         <artifactId>jutf-spring</artifactId>
-        <version>1.0.2-SNAPSHOT</version>
+        <version>1.0.2</version>
     </dependency>
     
 ## 推荐
