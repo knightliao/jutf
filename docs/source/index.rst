@@ -5,7 +5,7 @@ Java Unit Test Framework (Warp H2/Mockito/jmockit tools to make java application
 
 - Jutf: https://github.com/knightliao/jutf
 
-推荐
+推荐:
 
 - 有态度无广告的搜索引擎: https://www.sov5.com
 - 微读 - 高品质阅读: http://www.100weidu.com
@@ -16,6 +16,7 @@ Java Unit Test Framework (Warp H2/Mockito/jmockit tools to make java application
 - pfrock - A plugin-based server for running fake HTTP services (especially SOA service): https://github.com/knightliao/pfrock
 - pdbsync - configurable db sync tool using python: https://github.com/knightliao/pdbsync
 
+教程:
 
 .. toctree::
    :maxdepth: 2
