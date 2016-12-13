@@ -57,6 +57,9 @@ public class LogbackCapturingAppender extends AppenderBase<ILoggingEvent> {
     }
 
     public String getCapturedLogMessage() {
+        if (captured == null) {
+            return null;
+        }
         return captured.getMessage();
     }
 
