@@ -24,17 +24,7 @@ Java Unit Test Framework (Warp H2/Mockito/jmockit tools to make java application
     
 ## Quick Start
 
-### jutf
-
-#### H2 Test
-
-
-
-    
-
-### jutf-Spring
-
-    
+doc: http://jutf.readthedocs.io/en/latest/
 
 ## Maven
 
