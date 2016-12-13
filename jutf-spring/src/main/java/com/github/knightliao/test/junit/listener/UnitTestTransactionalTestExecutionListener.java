@@ -8,7 +8,8 @@ import java.util.List;
 import javax.sql.DataSource;
 
 import org.apache.commons.lang3.ArrayUtils;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.core.io.Resource;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
@@ -23,7 +24,8 @@ import com.github.knightliao.test.datasource.UnitTestDataSource;
  * @date 2016年6月12日
  */
 public class UnitTestTransactionalTestExecutionListener extends TransactionalTestExecutionListener {
-    private static final Logger LOGGER = Logger.getLogger(UnitTestTransactionalTestExecutionListener.class);
+
+    protected static final Logger LOGGER = LoggerFactory.getLogger(UnitTestTransactionalTestExecutionListener.class);
 
     @Override
     public void beforeTestMethod(final TestContext testContext) throws Exception {

@@ -8,7 +8,8 @@ import java.sql.SQLException;
 
 import javax.sql.DataSource;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
 import org.springframework.util.StringUtils;
 
@@ -17,7 +18,8 @@ import org.springframework.util.StringUtils;
  * @date 2016年6月12日
  */
 public class UnitTestDataSource extends AbstractRoutingDataSource {
-    private static final Logger LOGGER = Logger.getLogger(UnitTestDataSource.class);
+
+    protected static final Logger LOGGER = LoggerFactory.getLogger(UnitTestDataSource.class);
 
     private static final ThreadLocal<String> SELECTED_KEY = new ThreadLocal<String>();
 
@@ -76,7 +78,7 @@ public class UnitTestDataSource extends AbstractRoutingDataSource {
                 con = ds.getConnection(username, password);
             }
         } catch (SQLException e) {
-            LOGGER.error(e);
+            LOGGER.error(e.toString());
         }
         return con;
 

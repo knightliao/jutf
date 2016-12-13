@@ -2,7 +2,8 @@ package com.github.knightliao.test.mocks;
 
 import java.lang.reflect.Method;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.FactoryBean;
 import org.springframework.cglib.proxy.Enhancer;
 import org.springframework.cglib.proxy.MethodInterceptor;
@@ -13,7 +14,8 @@ import org.springframework.cglib.proxy.MethodProxy;
  * @date 2016年6月3日
  */
 public class MockUpBean<T> implements FactoryBean<T> {
-    private final static Logger LOGGER = Logger.getLogger(MockUpBean.class);
+
+    protected static final Logger LOGGER = LoggerFactory.getLogger(MockUpBean.class);
 
     private final CglibProxy proxy = new CglibProxy();
 
