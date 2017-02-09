@@ -33,7 +33,7 @@ doc: http://jutf.readthedocs.io/en/latest/
     <dependency>
         <groupId>com.github.knightliao.test</groupId>
         <artifactId>jutf</artifactId>
-        <version>1.0.2</version>
+        <version>1.0.3</version>
     </dependency>
     
 ### jutf-Spring
@@ -41,7 +41,7 @@ doc: http://jutf.readthedocs.io/en/latest/
     <dependency>
         <groupId>com.github.knightliao.test</groupId>
         <artifactId>jutf-spring</artifactId>
-        <version>1.0.2</version>
+        <version>1.0.3</version>
     </dependency>
     
 ## 推荐
