@@ -8,6 +8,8 @@ jutf
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.knightliao.test/jutf-spring/badge.svg?style=plastic)](https://maven-badges.herokuapp.com/maven-central/com.github.knightliao.test/jutf-spring)
 
 Java Unit Test Framework (Warp H2/Mockito/jmockit tools to make java application better) 
+
+一个非常好用的Java单元测试框架。
  
 ## Func
 
