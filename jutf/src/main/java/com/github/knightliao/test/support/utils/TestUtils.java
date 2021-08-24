@@ -37,6 +37,7 @@ public class TestUtils {
 
     public static void testAllClassUnderPackage(String pack) {
         for (Class<?> clazz : getClassList(pack)) {
+
             testGetSet(clazz);
             testToString(clazz);
             testHashCodeAndEquals(clazz);
@@ -162,64 +163,112 @@ public class TestUtils {
 
     private static void testHashCodeAndEquals(Class<?> clz) {
         try {
+
+            //
             Object original = clz.newInstance();
-            Object dupe = BeanUtils.cloneBean(original);
+            Object dupe = TimeoutExecutorUtil.doAction(new IMyTestCallback() {
+                @Override
+                public Object doAction() {
+                    try {
+                        return BeanUtils.cloneBean(original);
+                    } catch (Exception e) {
+                        LOG.warn("testHashCodeAndEquals.cloneBean Catch exception, do nothing." + clz.getName());
+                    }
+                    return null;
+                }
+            });
+
+            //
             Field[] fields = clz.getDeclaredFields();
             for (Field field : fields) {
                 field.setAccessible(true);
                 if ((field.getModifiers() & (Modifier.FINAL | Modifier.STATIC)) == 0) {
-                    try {
-                        Object defaultValue = getValue(field.get(original), field, true);
-                        field.set(original, defaultValue);
-                        field.set(dupe, defaultValue);
-                    } catch (Throwable e) {
-                        // System.out.println(e.getMessage());
-                    }
+
+                    TimeoutExecutorUtil.doAction(new IMyTestCallback() {
+
+                        @Override
+                        public Object doAction() {
+                            try {
+                                Object defaultValue = getValue(field.get(original), field, true);
+                                field.set(original, defaultValue);
+                                field.set(dupe, defaultValue);
+                            } catch (Throwable e) {
+                                // System.out.println(e.getMessage());
+                            }
+                            return null;
+                        }
+                    });
                 }
             }
+
+            //
             original.equals(original);
             original.equals(new Object());
             original.equals(null);
             original.equals(dupe);
             dupe.hashCode();
+
             // change value one by one
             for (Field field : fields) {
-                Object orginField = field.get(original);
-                Object dupeField = field.get(dupe);
-                if ((field.getModifiers() & (Modifier.FINAL | Modifier.STATIC)) != 0) {
-                    continue;
-                }
-                try {
-                    // set different value
-                    field.set(dupe, getValue(field.get(original), field, false));
-                    original.equals(dupe);
-                } catch (Throwable e) {
-                    LOG.warn("equals Catch exception, do nothing." + clz.getName());
-                }
-                // orgin 的字段set null
-                try {
-                    field.set(original, null);
-                    original.equals(dupe);
-                    dupe.equals(original);
-                    dupe.hashCode();
-                } catch (Throwable e) {
-                    LOG.warn("equals Catch exception, do nothing." + clz.getName());
-                }
-                // dupe 的字段set null
-                try {
-                    field.set(dupe, null);
-                    original.equals(dupe);
-                    dupe.hashCode();
-                } catch (Throwable e) {
-                    LOG.warn("equals Catch exception, do nothing." + clz.getName());
-                }
-                // set back
-                try {
-                    field.set(original, orginField);
-                    field.set(dupe, dupeField);
-                } catch (Throwable e) {
-                    LOG.warn("equals Catch exception, do nothing." + clz.getName());
-                }
+
+                field.setAccessible(true);
+
+                TimeoutExecutorUtil.doAction(new IMyTestCallback() {
+
+                    @Override
+                    public Object doAction() {
+
+                        Object orginField = null;
+                        Object dupeField = null;
+                        try {
+                            orginField = field.get(original);
+                            dupeField = field.get(dupe);
+                            if ((field.getModifiers() & (Modifier.FINAL | Modifier.STATIC)) != 0) {
+                                return null;
+                            }
+                        } catch (Throwable e) {
+                            LOG.warn("equals Catch exception, do nothing." + clz.getName());
+                        }
+
+                        try {
+                            // set different value
+                            field.set(dupe, getValue(field.get(original), field, false));
+                            original.equals(dupe);
+                        } catch (Throwable e) {
+                            LOG.warn("equals Catch exception, do nothing." + clz.getName());
+                        }
+
+                        // orgin 的字段set null
+                        try {
+                            field.set(original, null);
+                            original.equals(dupe);
+                            dupe.equals(original);
+                            dupe.hashCode();
+                        } catch (Throwable e) {
+                            LOG.warn("equals Catch exception, do nothing." + clz.getName());
+                        }
+
+                        // dupe 的字段set null
+                        try {
+                            field.set(dupe, null);
+                            original.equals(dupe);
+                            dupe.hashCode();
+                        } catch (Throwable e) {
+                            LOG.warn("equals Catch exception, do nothing." + clz.getName());
+                        }
+
+                        // set back
+                        try {
+                            field.set(original, orginField);
+                            field.set(dupe, dupeField);
+                        } catch (Throwable e) {
+                            LOG.warn("equals Catch exception, do nothing." + clz.getName());
+                        }
+
+                        return null;
+                    }
+                });
+
             }
         } catch (Throwable e) {
             LOG.warn("testHashCodeAndEquals Catch exception, do nothing." + clz.getName());

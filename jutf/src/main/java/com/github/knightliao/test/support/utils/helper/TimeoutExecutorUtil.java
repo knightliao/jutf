@@ -15,7 +15,7 @@ import java.util.concurrent.TimeoutException;
  */
 public class TimeoutExecutorUtil {
 
-    public static void doAction(final IMyTestCallback myTestCallback) {
+    public static Object doAction(final IMyTestCallback myTestCallback) {
 
         ExecutorService executor = Executors.newCachedThreadPool();
 
@@ -28,7 +28,7 @@ public class TimeoutExecutorUtil {
         Future<Object> future = executor.submit(task);
         try {
 
-            Object result = future.get(5, TimeUnit.SECONDS);
+            return future.get(5, TimeUnit.SECONDS);
 
         } catch (TimeoutException ex) {
             // handle the timeout
@@ -43,5 +43,7 @@ public class TimeoutExecutorUtil {
         } finally {
             future.cancel(true); // may or may not desire this
         }
+
+        return null;
     }
 }
