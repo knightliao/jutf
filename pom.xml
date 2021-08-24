@@ -30,9 +30,9 @@
         <mybatis.version>3.3.0</mybatis.version>
 
         <!-- JAVA环境 -->
-        <java.version>1.7</java.version>
-        <source.version>1.7</source.version>
-        <target.version>1.7</target.version>
+        <java.version>1.8</java.version>
+        <source.version>1.8</source.version>
+        <target.version>1.8</target.version>
     </properties>
 
     <!-- 构建 -->
@@ -172,14 +172,10 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <configuration>
-                    <tags>
-                        <tag>
-                            <name>date</name>
-                            <!-- todo tag for all places -->
-                            <placement>a</placement>
-                            <head>date</head>
-                        </tag>
-                    </tags>
+                    <!-- jdk1.8要加上，1.7要去掉，否则会报错 -->
+                    <additionalJOptions>
+                        <additionalJOption>-Xdoclint:none</additionalJOption>
+                    </additionalJOptions>
                 </configuration>
                 <executions>
                     <execution>
@@ -268,17 +264,19 @@
                             </execution>
                         </executions>
                     </plugin>
+
                     <!-- Javadoc -->
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-javadoc-plugin</artifactId>
-                        <version>2.10.4</version>
+                        <version>2.9</version>
                         <executions>
                             <execution>
                                 <phase>package</phase>
                                 <goals>
                                     <goal>jar</goal>
                                 </goals>
+
                             </execution>
                         </executions>
                     </plugin>
