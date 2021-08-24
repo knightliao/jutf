@@ -18,6 +18,9 @@ import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import com.github.knightliao.test.support.utils.helper.IMyTestCallback;
+import com.github.knightliao.test.support.utils.helper.TimeoutExecutorUtil;
+
 /**
  * 为基础类的getter/setter/hashCode/equals/toString等自动生成的函数提供UT支持，大大提升UT的分支覆盖率
  * 本类对常规类型、class、容器里的collection做了defaultValue处理。其他的暂时不管了。
@@ -80,22 +83,34 @@ public class TestUtils {
         return myClassList;
     }
 
-    private static void testGetSet(Class<?> clz) {
+    private static void testGetSet(final Class<?> clz) {
         try {
             if (clz.getName().contains("mock")) {
                 return;
             }
             Field[] fields = clz.getDeclaredFields();
-            for (Field field : fields) {
-                Object obj = clz.newInstance();
+            for (final Field field : fields) {
+                final Object obj = clz.newInstance();
                 try {
                     field.setAccessible(true);
-                    String getMethod =
+                    final String getMethod =
                             "get" + Character.toUpperCase(field.getName().charAt(0)) + field.getName().substring(1);
-                    String setMethod =
+                    final String setMethod =
                             "set" + Character.toUpperCase(field.getName().charAt(0)) + field.getName().substring(1);
-                    Object value = clz.getDeclaredMethod(getMethod).invoke(obj);
-                    clz.getDeclaredMethod(setMethod, field.getType()).invoke(obj, value);
+
+                    //
+                    TimeoutExecutorUtil.doAction(new IMyTestCallback() {
+                        @Override
+                        public Object doAction() {
+                            try {
+                                Object value = clz.getDeclaredMethod(getMethod).invoke(obj);
+                                clz.getDeclaredMethod(setMethod, field.getType()).invoke(obj, value);
+                            } catch (Exception e) {
+                            }
+                            return null;
+                        }
+                    });
+
                 } catch (Throwable e) {
                     LOG.warn("testGetSet Catch exception, do nothing." + clz.getName());
                 }
@@ -312,7 +327,6 @@ public class TestUtils {
     /**
      * @param clz
      * @param isDefault
-     *
      * @return
      */
     private static Object getValueOfClass(Class clz, boolean isDefault) {
