@@ -32,6 +32,7 @@ public class TimeoutExecutorUtil {
 
         } catch (TimeoutException ex) {
             // handle the timeout
+            throw new RuntimeException("execute timeout", ex);
 
         } catch (InterruptedException e) {
             // handle the interrupts
